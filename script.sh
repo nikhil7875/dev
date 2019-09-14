@@ -1,26 +1,10 @@
-#include <stdio.h>
-
-size_t my_strlen(const char *s)
-{
-   const char *p = s;
-
-   while (*p)
-      ++p;
-
-   return (p - s);
-}
-
-int main(void)
-{
-   int i;
-   char *s[] = 
-   {
-      "Git tutorials",
-      "Tutorials Point"
-   };
-
-   for (i = 0; i < 2; ++i)
-      
-   printf("string lenght of %s = %lu\n", s[i], my_strlen(s[i]));
-   return 0;
-}
+#!/bin/bash
+echo "Getting system level info."
+echo "HOSTNAME : `hostname`"
+echo "DATE : `date`"
+echo "KERNAEL VER : `uname`"
+echo "IP : `hostname -i`"
+echo ""
+echo "DISK : `df -Th`"
+echo ""
+echo "MEMORY : `free -h`"
