@@ -1,6 +1,6 @@
 ARG VERSION
 FROM myregistry.com/docker-main/rundeck:${VERSION}
-MAINTAINER Nikhil Pandit <npandit@saba.com>
+MAINTAINER Nikhil Pandit
 USER root
 WORKDIR rundeck
 EXPOSE 8080
