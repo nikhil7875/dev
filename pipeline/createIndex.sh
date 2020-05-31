@@ -13,4 +13,4 @@ cat > index.html <<EOF
 EOF
 
 DATE=`date`
-sed -i "s~<MY-DATE>~${DATE}~g" index.html
+sed -i "s~<MY-DATE>~${DATE}~g" /tmp/index.html
