@@ -12,5 +12,5 @@ cat > index.html <<EOF
 </html>
 EOF
 
-DATE=`date`
+DATE=`TZ=":Asia/Kolkata" date`
 sed -i "s~<MY-DATE>~${DATE}~g" index.html
