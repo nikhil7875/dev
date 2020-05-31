@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cat > index.html <<EOF
+cat > /tmp/index.html <<EOF
 <!DOCTYPE html>
 <html>
 <body>
