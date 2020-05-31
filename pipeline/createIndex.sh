@@ -1,6 +1,6 @@
 #!/bin/bash
 
-cat > /tmp/index.html <<EOF
+cat > index.html <<EOF
 <!DOCTYPE html>
 <html>
 <body>
@@ -13,4 +13,4 @@ cat > /tmp/index.html <<EOF
 EOF
 
 DATE=`date`
-sed -i "s~<MY-DATE>~${DATE}~g" /tmp/index.html
+sed -i "s~<MY-DATE>~${DATE}~g" index.html
