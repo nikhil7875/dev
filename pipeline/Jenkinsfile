@@ -1,0 +1,36 @@
+pipeline {
+   agent any
+
+   stages {
+      stage('GenerateIndexHtml') {
+         steps {
+                checkout([$class: 'GitSCM', 
+                branches: [[name: '*/master']], 
+                doGenerateSubmoduleConfigurations: false, 
+                extensions: [], 
+                submoduleCfg: [], 
+                userRemoteConfigs: [[url: 'https://github.com/nikhil7875/dev.git']]])
+                sh label: '', 
+                script: 'cd pipeline && ./createIndex.sh'
+         }
+      }
+      
+      stage('BuildImage') {
+         steps {
+           sh label: '', 
+           script: 'cd pipeline && docker build -t myregistry.com/docker-main/nginx:${BUILD_NUMBER} .'
+         }
+      }      
+      
+      stage('RunContainer') {
+         steps {
+           sh label: '', 
+           script: '''count=`docker ps -a | grep nginx| wc -l`
+           if [ $count -eq 1 ]; then docker rm -f nginx ; fi
+           docker run -d --name nginx -p 8686:80 myregistry.com/docker-main/nginx:${BUILD_NUMBER} '''
+         }
+      }      
+            
+      
+   }
+}
