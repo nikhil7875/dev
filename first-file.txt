@@ -1,4 +1,4 @@
 First Checkin
 NEW LINE 2
 line 3
-new line
+new line 2
